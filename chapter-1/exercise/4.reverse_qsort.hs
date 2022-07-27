@@ -1,10 +1,10 @@
-rev_qsort :: Ord a => [a] -> [a]
-rev_qsort [] = []
-rev_qsort (x:xs) = rev_qsort lhs ++ [x] ++ rev_qsort rhs
+revQsort :: Ord a => [a] -> [a]
+revQsort [] = []
+revQsort (x:xs) = revQsort lhs ++ [x] ++ revQsort rhs
     where
-        lhs = [ x | x <- xs, x <= x ]
-        rhs = [ x | x <- xs, x > x ]
+        lhs = [ a | a <- xs, x <= a ]
+        rhs = [ a | a <- xs, x > a ]
 
 main :: IO()
 main = do
-    print $ rev_qsort [1,2,3,4,5,6,7,8,9,10]
+    print $ revQsort [1,2,3,4,5,6,7,8,9,10]
